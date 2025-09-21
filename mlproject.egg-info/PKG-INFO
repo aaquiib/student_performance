@@ -1,0 +1,12 @@
+Metadata-Version: 2.4
+Name: mlproject
+Version: 0.0.1
+Author: aaquib
+Author-email: aaquiibnawaz@gmail.com
+Requires-Dist: setuptools
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: seaborn
+Dynamic: author
+Dynamic: author-email
+Dynamic: requires-dist
