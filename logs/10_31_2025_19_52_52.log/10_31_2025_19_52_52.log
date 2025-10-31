@@ -1,0 +1,32 @@
+[ 2025-10-31 19:52:57,306 ] 24 root - INFO - entered data ingestion initiation
+[ 2025-10-31 19:52:57,316 ] 27 root - INFO - data read as dataframe
+[ 2025-10-31 19:52:57,323 ] 33 root - INFO - train test split initaited
+[ 2025-10-31 19:52:57,336 ] 38 root - INFO - ingestion of data completed
+[ 2025-10-31 19:52:57,405 ] 39 root - INFO - ==== Model Training Started ====
+[ 2025-10-31 19:52:57,405 ] 47 root - INFO - train test spliting done
+[ 2025-10-31 19:52:57,405 ] 85 root - INFO - Training model: LinearRegression
+[ 2025-10-31 19:53:02,618 ] 89 root - INFO - model trained successfully
+[ 2025-10-31 19:53:02,622 ] 85 root - INFO - Training model: Lasso
+[ 2025-10-31 19:53:06,952 ] 89 root - INFO - model trained successfully
+[ 2025-10-31 19:53:06,956 ] 85 root - INFO - Training model: Ridge
+[ 2025-10-31 19:53:06,986 ] 89 root - INFO - model trained successfully
+[ 2025-10-31 19:53:06,988 ] 85 root - INFO - Training model: ElasticNet
+[ 2025-10-31 19:53:07,034 ] 89 root - INFO - model trained successfully
+[ 2025-10-31 19:53:07,037 ] 85 root - INFO - Training model: SVR
+[ 2025-10-31 19:53:07,202 ] 89 root - INFO - model trained successfully
+[ 2025-10-31 19:53:07,289 ] 85 root - INFO - Training model: KNN
+[ 2025-10-31 19:53:07,921 ] 89 root - INFO - model trained successfully
+[ 2025-10-31 19:53:12,974 ] 85 root - INFO - Training model: DecisionTree
+[ 2025-10-31 19:53:13,048 ] 89 root - INFO - model trained successfully
+[ 2025-10-31 19:53:13,050 ] 85 root - INFO - Training model: RandomForest
+[ 2025-10-31 19:53:13,949 ] 89 root - INFO - model trained successfully
+[ 2025-10-31 19:53:13,980 ] 85 root - INFO - Training model: GradientBoosting
+[ 2025-10-31 19:53:14,382 ] 89 root - INFO - model trained successfully
+[ 2025-10-31 19:53:14,386 ] 85 root - INFO - Training model: AdaBoost
+[ 2025-10-31 19:53:14,929 ] 89 root - INFO - model trained successfully
+[ 2025-10-31 19:53:14,968 ] 85 root - INFO - Training model: XGBoost
+[ 2025-10-31 19:53:16,626 ] 89 root - INFO - model trained successfully
+[ 2025-10-31 19:53:16,632 ] 85 root - INFO - Training model: CatBoost
+[ 2025-10-31 19:53:22,794 ] 89 root - INFO - model trained successfully
+[ 2025-10-31 19:53:22,821 ] 99 root - INFO - Best Model: Lasso with R2 Score: 0.8820820270670147
+[ 2025-10-31 19:53:22,826 ] 106 root - INFO - Best Model: Lasso saved

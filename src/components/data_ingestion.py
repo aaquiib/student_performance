@@ -8,6 +8,7 @@ from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
 
 from src.components.data_transformation import dataTransformation
+from src.components.model_trainer import modelTrainer
 
 @dataclass
 class dataIngestionConfig:
@@ -22,7 +23,7 @@ class dataIngestion:
     def initiate_data_ingestion(self):
         logging.info("entered data ingestion initiation")
         try:
-            df=pd.read_csv("notebook\data\stud.csv")
+            df = pd.read_csv("notebook\\data\\stud.csv")
             logging.info("data read as dataframe")
 
             os.makedirs(os.path.dirname(self.ingestion_config.raw_data_path),exist_ok=True)
@@ -44,9 +45,12 @@ class dataIngestion:
         except Exception as e:
             raise CustomException(e,sys)
         
-# if __name__ =="__main__":
-#     obj=dataIngestion()
-#     train_path, test_path= obj.initiate_data_ingestion()
-#     data_transformation_obj= dataTransformation()
-#     data_transformation_obj.initiate_data_transformation(train_path, test_path)
+if __name__ =="__main__":
+    obj=dataIngestion()
+    train_path, test_path= obj.initiate_data_ingestion()
 
+    data_transformation_obj= dataTransformation()
+    train_arr, test_arr, preprocessor_obj_file_path= data_transformation_obj.initiate_data_transformation(train_path, test_path)
+
+    model_trainer_obj= modelTrainer()
+    model_trainer_obj.initiate_model_trainer(train_arr,test_arr,preprocessor_obj_file_path)
