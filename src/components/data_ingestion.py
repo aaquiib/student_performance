@@ -2,6 +2,7 @@ import sys
 import os
 from src.exception import CustomException
 from src.logger import logging
+import dill
 
 import pandas as pd
 from sklearn.model_selection import train_test_split
@@ -54,3 +55,25 @@ if __name__ =="__main__":
 
     model_trainer_obj= modelTrainer()
     model_trainer_obj.initiate_model_trainer(train_arr,test_arr,preprocessor_obj_file_path)
+    
+    #testing prediction
+    # new_data = pd.DataFrame([{
+    # "gender": "female",
+    # "race_ethnicity": "group C",
+    # "parental_level_of_education": "bachelor's degree",
+    # "lunch": "standard",
+    # "test_preparation_course": "completed",
+    # "reading_score": 100,
+    # "writing_score": 100
+    # }])
+
+    # # Load model
+    # with open("artifacts/model.pkl", "rb") as f:
+    #     model = dill.load(f)
+    # # Load preprocessor
+    # with open("artifacts/preprocessor.pkl", "rb") as f:
+    #     preprocessor = dill.load(f)
+    # processed_input = preprocessor.transform(new_data)
+    # # Predict
+    # prediction = model.predict(processed_input)
+    # print("Predicted Math Score:", prediction[0])
