@@ -1,120 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Score Prediction - Input Form</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 40px;
-            background: #f5f5f5;
-        }
-        .container {
-            background: white;
-            padding: 25px;
-            border-radius: 10px;
-            width: 420px;
-            margin: auto;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        label {
-            font-weight: bold;
-            margin-top: 15px;
-            display: block;
-        }
-        select, input {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            border-radius: 5px;
-            border: 1px solid #aaa;
-        }
-        button {
-            width: 100%;
-            margin-top: 20px;
-            padding: 12px;
-            background: #0078ff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        button:hover {
-            background: #005fcc;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Score Predictor</title>
+  <style>
+    /* Import a modern clean font */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
-        /* ✅ Prediction box styling */
-        .prediction-box {
-            margin-top: 25px;
-            padding: 15px;
-            background: #e8f0fe;
-            border-left: 5px solid #0078ff;
-            border-radius: 5px;
-        }
-    </style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #232946 0%, #121629 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      color: #e4e8ef;
+    }
+
+    .card {
+      width: 420px;
+      background: #171a2b;
+      padding: 32px 30px;
+      border-radius: 20px;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
+      animation: fadeIn 0.6s ease;
+      border: 1px solid #272b47;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #d1e8ff;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    label {
+      font-weight: 600;
+      margin-top: 14px;
+      display: block;
+      color: #a6b3ce;
+      letter-spacing: 0.5px;
+      font-size: 15px;
+    }
+
+    select,
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-top: 7px;
+      border-radius: 10px;
+      border: 1px solid #344063;
+      background: #23263a;
+      color: #e4e8ef;
+      font-size: 15px;
+      transition: border-color 0.2s, box-shadow 0.2s, background 0.25s;
+      margin-bottom: 2px;
+      outline: none;
+    }
+
+    select:focus,
+    input:focus {
+      border-color: #0095ff;
+      background: #232946;
+      box-shadow: 0 0 8px 0 #0095ff45;
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      margin-top: 28px;
+      background: linear-gradient(90deg, #5286ff 0%, #0095ff 100%);
+      border: none;
+      border-radius: 12px;
+      color: #f6f6f6;
+      font-size: 17px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 2px 16px #0095ff55;
+      transition: background 0.25s, transform 0.15s;
+    }
+
+    button:hover {
+      background: linear-gradient(90deg, #3978e6 0%, #007dd1 100%);
+      transform: translateY(-2px) scale(1.02);
+    }
+
+    .prediction-box {
+      margin-top: 26px;
+      padding: 20px;
+      background: linear-gradient(90deg, #2036a6 0%, #0fa3e2 100%);
+      border-left: 6px solid #0095ff;
+      border-radius: 12px;
+      animation: slideUp 0.4s ease;
+      color: #f6f6f6;
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .prediction-box h3 {
+      margin: 0 0 4px 0;
+      color: #e0f2fe;
+      font-size: 1.03rem;
+      font-weight: 600;
+    }
+
+    .prediction-box h2 {
+      margin: 6px 0 0;
+      color: #ffffff;
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    /* Custom scrollbar for modern appearance */
+    ::-webkit-scrollbar {
+      width: 10px;
+      background: #171a2b;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #272b47;
+      border-radius: 10px;
+    }
+  </style>
 </head>
 <body>
-
-<div class="container">
-    <h2>Enter Student Details</h2>
-
+  <div class="card">
+    <h2>Student Score Predictor</h2>
     <form action="/predict" method="POST">
+      <label>Gender</label>
+      <select name="gender" required>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
 
-        <label>Gender</label>
-        <select name="gender" required>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-        </select>
+      <label>Race / Ethnicity</label>
+      <select name="race_ethnicity" required>
+        <option value="group A">Group A</option>
+        <option value="group B">Group B</option>
+        <option value="group C">Group C</option>
+        <option value="group D">Group D</option>
+        <option value="group E">Group E</option>
+      </select>
 
-        <label>Race/Ethnicity</label>
-        <select name="race_ethnicity" required>
-            <option value="group A">Group A</option>
-            <option value="group B">Group B</option>
-            <option value="group C">Group C</option>
-            <option value="group D">Group D</option>
-            <option value="group E">Group E</option>
-        </select>
+      <label>Parental Education</label>
+      <select name="parental_level_of_education" required>
+        <option value="bachelor's degree">Bachelor's degree</option>
+        <option value="some college">Some college</option>
+        <option value="master's degree">Master's degree</option>
+        <option value="associate's degree">Associate's degree</option>
+        <option value="high school">High school</option>
+      </select>
 
-        <label>Parental Level of Education</label>
-        <select name="parental_level_of_education" required>
-            <option value="bachelor's degree">Bachelor's degree</option>
-            <option value="some college">Some college</option>
-            <option value="master's degree">Master's degree</option>
-            <option value="associate's degree">Associate's degree</option>
-            <option value="high school">High school</option>
-        </select>
+      <label>Lunch</label>
+      <select name="lunch" required>
+        <option value="standard">Standard</option>
+        <option value="free/reduced">Free/Reduced</option>
+      </select>
 
-        <label>Lunch</label>
-        <select name="lunch" required>
-            <option value="standard">Standard</option>
-            <option value="free/reduced">Free/Reduced</option>
-        </select>
+      <label>Test Preparation</label>
+      <select name="test_preparation_course" required>
+        <option value="none">Not completed</option>
+        <option value="completed">Completed</option>
+      </select>
 
-        <label>Test Preparation Course</label>
-        <select name="test_preparation_course" required>
-            <option value="none">Not completed</option>
-            <option value="completed">Completed</option>
-        </select>
+      <label>Reading Score</label>
+      <input type="number" name="reading_score" min="0" max="100" required />
 
-        <label>Reading Score</label>
-        <input type="number" name="reading_score" min="0" max="100" required>
+      <label>Writing Score</label>
+      <input type="number" name="writing_score" min="0" max="100" required />
 
-        <label>Writing Score</label>
-        <input type="number" name="writing_score" min="0" max="100" required>
-
-        <button type="submit">Predict Math Score</button>
+      <button type="submit">Predict Math Score</button>
     </form>
 
+    <!-- Backend logic should set prediction variable -->
     {% if prediction %}
     <div class="prediction-box">
-        <h3>Predicted Math Score:</h3>
-        <h2>{{ prediction }}</h2>
+      <h3>Predicted Math Score</h3>
+      <h2>{{ prediction }}</h2>
     </div>
     {% endif %}
-
-</div>
-
+  </div>
 </body>
 </html>
